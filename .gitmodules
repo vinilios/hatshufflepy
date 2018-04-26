@@ -1,0 +1,3 @@
+[submodule "hatshufflepy/libhatshuffle"]
+	path = hatshufflepy/libhatshuffle
+	url = https://shaliasos@bitbucket.org/JannoSiim/hat_shuffle_implementation.git
