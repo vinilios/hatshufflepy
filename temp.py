@@ -30,8 +30,8 @@ setup(
             "hatshufflepy",
             sources=["hatshufflepy/hatshufflepy.pyx"],
             language="c++",
-            include_dirs=["hatshufflepy/libhatshuffle/libhatshuffle/", "hatshufflepy/libhatshuffle/depends/libff"],
-            library_dirs = ["/usr/local/lib", "hatshufflepy/libhatshuffle/build/depends/libff/depends", "hatshufflepy/libhatshuffle/build/depends/libff/libff", "hatshufflepy/libhatshuffle/build/libhatshuffle"],
+            include_dirs=["hatshufflepy/libhatshuffle/include/libhatshuffle", "hatshufflepy/libhatshuffle/include", "hatshufflepy/libhatshuffle/depends/libff/"],
+            library_dirs = ["/usr/local/lib", "hatshufflepy/libhatshuffle/lib", "hatshufflepy/libhatshuffle/build/depends/libff/depends"],
             extra_compile_args = ["-std=c++11", "-fPIC", "-shared", "-w", "-static", "-O3"],
             extra_link_args = ["-lgmp", "-lzm", "-lff", "-lhatshuffle", "-fopenmp", "-g"]
         )
