@@ -4,7 +4,7 @@
 {
     "distutils": {
         "depends": [
-            "hatshufflepy/libhatshuffle/include/libhatshuffle/mixnet.h"
+            "hatshufflepy/libhatshuffle/libhatshuffle/mixnet.h"
         ], 
         "extra_compile_args": [
             "-std=c++11", 
@@ -23,13 +23,15 @@
             "-g"
         ], 
         "include_dirs": [
-            "hatshufflepy/libhatshuffle/include/libhatshuffle"
+            "hatshufflepy/libhatshuffle/libhatshuffle/", 
+            "hatshufflepy/libhatshuffle/depends/libff"
         ], 
         "language": "c++", 
         "library_dirs": [
             "/usr/local/lib", 
-            "hatshufflepy/libhatshuffle/lib", 
-            "hatshufflepy/libhatshuffle/build/depends"
+            "hatshufflepy/libhatshuffle/build/depends/libff/depends", 
+            "hatshufflepy/libhatshuffle/build/depends/libff/libff", 
+            "hatshufflepy/libhatshuffle/build/libhatshuffle"
         ], 
         "name": "hatshufflepy", 
         "sources": [
