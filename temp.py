@@ -13,7 +13,7 @@ os.environ["CXX"] = "g++"
 setup(
     name="hatshufflepy",
 	version="0.0.1",
-	
+
 	author="Stefanos Chaliasos",
 	author_email="stefanoshaliassos@gmail.com",
 	description="Cython wrapper for hat shuffle implementation",
@@ -30,8 +30,10 @@ setup(
             "hatshufflepy",
             sources=["hatshufflepy/hatshufflepy.pyx"],
             language="c++",
-            include_dirs=["hatshufflepy/libhatshuffle/include/libhatshuffle", "hatshufflepy/libhatshuffle/include", "hatshufflepy/libhatshuffle/depends/libff/"],
-            library_dirs = ["/usr/local/lib", "hatshufflepy/libhatshuffle/lib", "hatshufflepy/libhatshuffle/build/depends/libff/depends"],
+            include_dirs=["hatshufflepy/libhatshuffle/include/libhatshuffle",
+                          "hatshufflepy/libhatshuffle/include",
+                          "hatshufflepy/libhatshuffle/include/libff"],
+            library_dirs = ["/usr/local/lib", "hatshufflepy/libhatshuffle/lib"],
             extra_compile_args = ["-std=c++11", "-fPIC", "-shared", "-w", "-static", "-O3"],
             extra_link_args = ["-lgmp", "-lzm", "-lff", "-lhatshuffle", "-fopenmp", "-g"]
         )
