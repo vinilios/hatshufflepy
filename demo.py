@@ -1,8 +1,14 @@
 import hatshufflepy
 import datetime
+import sys
+
+
+if sys.argv[0]:
+    votes_number = int(sys.argv[1])
+else:
+    votes_number = 100
 
 start = datetime.datetime.now()
-votes_number = 1000
 crs_file = "crs.json"
 votes_file = "votes.json"
 ciphertexts_file = "ciphertexts.json"

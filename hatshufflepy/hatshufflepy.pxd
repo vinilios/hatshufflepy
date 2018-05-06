@@ -25,3 +25,7 @@ cdef extern from "mixnet.h":
 cdef extern from "mixnet.h":
     bool decrypt(string crs_file, string votes_file, string proofs_file,
                  string decrypted_votes_file)
+
+
+cdef extern from "mixnet.h":
+    bool test_mixnet(int n)
