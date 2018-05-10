@@ -7,5 +7,6 @@ cp libff_changes/depends/libff/depends/CMakeLists.txt depends/libff/depends/CMak
 cp libff_changes/depends/libff/libff/algebra/curves/bn128/bn128_pairing.cpp depends/libff/libff/algebra/curves/bn128/bn128_pairing.cpp
 cp libff_changes/depends/libff/libff/algebra/curves/bn128/bn128_pp.cpp depends/libff/libff/algebra/curves/bn128/bn128_pp.cpp
 mkdir build && cd build && cmake  .. -DCMAKE_INSTALL_PREFIX=../
+# mkdir build && cd build && cmake -DMULTICORE=ON .. -DCMAKE_INSTALL_PREFIX=../
 make && make install
 cd ../../../
