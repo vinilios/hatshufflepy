@@ -9,10 +9,10 @@ else:
     votes_number = 100
 
 start = datetime.datetime.now()
-crs_file = "crs.json"
+secret_file = "sk"
 public_file = "pk"
 
-hatshufflepy.hat_shuffle_create_crs(votes_number, crs_file, public_file)
+hatshufflepy.hat_shuffle_key_gen(votes_number, public_file, secret_file)
 
 end = datetime.datetime.now() - start
 print(end)

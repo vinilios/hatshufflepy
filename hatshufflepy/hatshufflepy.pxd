@@ -3,7 +3,11 @@ from libcpp.string cimport string
 
 
 cdef extern from "mixnet.h":
-    bool create_crs(int votes_number, string crs_file)
+    bool key_gen(int votes_number, string public_file, string secret_file)
+
+
+cdef extern from "mixnet.h":
+    bool create_crs(int votes_number, string crs_file, string public_file)
 
 
 cdef extern from "mixnet.h":
@@ -24,7 +28,7 @@ cdef extern from "mixnet.h":
 
 cdef extern from "mixnet.h":
     bool decrypt(string crs_file, string votes_file, string proofs_file,
-                 string decrypted_votes_file)
+                 string decrypted_votes_file, string secret_file)
 
 
 cdef extern from "mixnet.h":

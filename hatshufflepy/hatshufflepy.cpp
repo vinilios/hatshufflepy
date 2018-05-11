@@ -36,7 +36,7 @@
         ], 
         "name": "hatshufflepy", 
         "runtime_library_dirs": [
-            "/home/user/final/hatshufflepy/libhatshuffle/lib"
+            "/home/user/hatshufflepy/hatshufflepy/libhatshuffle/lib"
         ], 
         "sources": [
             "hatshufflepy/hatshufflepy.pyx"
@@ -1024,11 +1024,14 @@ extern int __pyx_module_is_main_hatshufflepy;
 int __pyx_module_is_main_hatshufflepy = 0;
 
 /* Implementation of 'hatshufflepy' */
+static const char __pyx_k_n[] = "n";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_crs_file[] = "crs_file";
 static const char __pyx_k_votes_file[] = "votes_file";
 static const char __pyx_k_proofs_file[] = "proofs_file";
+static const char __pyx_k_public_file[] = "public_file";
+static const char __pyx_k_secret_file[] = "secret_file";
 static const char __pyx_k_hatshufflepy[] = "hatshufflepy";
 static const char __pyx_k_votes_number[] = "votes_number";
 static const char __pyx_k_ciphertexts_file[] = "ciphertexts_file";
@@ -1037,8 +1040,10 @@ static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_hat_shuffle_verify[] = "hat_shuffle_verify";
 static const char __pyx_k_hat_shuffle_decrypt[] = "hat_shuffle_decrypt";
 static const char __pyx_k_hat_shuffle_encrypt[] = "hat_shuffle_encrypt";
+static const char __pyx_k_hat_shuffle_key_gen[] = "hat_shuffle_key_gen";
 static const char __pyx_k_decrypted_votes_file[] = "decrypted_votes_file";
 static const char __pyx_k_hat_shuffle_create_crs[] = "hat_shuffle_create_crs";
+static const char __pyx_k_hat_shuffle_test_mixnet[] = "hat_shuffle_test_mixnet";
 static const char __pyx_k_hatshufflepy_hatshufflepy_pyx[] = "hatshufflepy/hatshufflepy.pyx";
 static const char __pyx_k_hat_shuffle_generate_encoded_vot[] = "hat_shuffle_generate_encoded_votes";
 static PyObject *__pyx_n_s_ciphertexts_file;
@@ -1049,59 +1054,194 @@ static PyObject *__pyx_n_s_hat_shuffle_create_crs;
 static PyObject *__pyx_n_s_hat_shuffle_decrypt;
 static PyObject *__pyx_n_s_hat_shuffle_encrypt;
 static PyObject *__pyx_n_s_hat_shuffle_generate_encoded_vot;
+static PyObject *__pyx_n_s_hat_shuffle_key_gen;
 static PyObject *__pyx_n_s_hat_shuffle_prove;
+static PyObject *__pyx_n_s_hat_shuffle_test_mixnet;
 static PyObject *__pyx_n_s_hat_shuffle_verify;
 static PyObject *__pyx_n_s_hatshufflepy;
 static PyObject *__pyx_kp_s_hatshufflepy_hatshufflepy_pyx;
 static PyObject *__pyx_n_s_main;
+static PyObject *__pyx_n_s_n;
 static PyObject *__pyx_n_s_proofs_file;
+static PyObject *__pyx_n_s_public_file;
+static PyObject *__pyx_n_s_secret_file;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_votes_file;
 static PyObject *__pyx_n_s_votes_number;
-static PyObject *__pyx_pf_12hatshufflepy_hat_shuffle_create_crs(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_votes_number, PyObject *__pyx_v_crs_file); /* proto */
-static PyObject *__pyx_pf_12hatshufflepy_2hat_shuffle_generate_encoded_votes(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_votes_file); /* proto */
-static PyObject *__pyx_pf_12hatshufflepy_4hat_shuffle_encrypt(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_votes_file, PyObject *__pyx_v_ciphertexts_file); /* proto */
-static PyObject *__pyx_pf_12hatshufflepy_6hat_shuffle_prove(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_ciphertexts_file, PyObject *__pyx_v_proofs_file); /* proto */
-static PyObject *__pyx_pf_12hatshufflepy_8hat_shuffle_verify(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_ciphertexts_file, PyObject *__pyx_v_proofs_file); /* proto */
-static PyObject *__pyx_pf_12hatshufflepy_10hat_shuffle_decrypt(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_votes_file, PyObject *__pyx_v_proofs_file, PyObject *__pyx_v_decrypted_votes_file); /* proto */
+static PyObject *__pyx_pf_12hatshufflepy_hat_shuffle_key_gen(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_votes_number, PyObject *__pyx_v_public_file, PyObject *__pyx_v_secret_file); /* proto */
+static PyObject *__pyx_pf_12hatshufflepy_2hat_shuffle_create_crs(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_votes_number, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_public_file); /* proto */
+static PyObject *__pyx_pf_12hatshufflepy_4hat_shuffle_generate_encoded_votes(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_votes_file); /* proto */
+static PyObject *__pyx_pf_12hatshufflepy_6hat_shuffle_encrypt(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_votes_file, PyObject *__pyx_v_ciphertexts_file); /* proto */
+static PyObject *__pyx_pf_12hatshufflepy_8hat_shuffle_prove(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_ciphertexts_file, PyObject *__pyx_v_proofs_file); /* proto */
+static PyObject *__pyx_pf_12hatshufflepy_10hat_shuffle_verify(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_ciphertexts_file, PyObject *__pyx_v_proofs_file); /* proto */
+static PyObject *__pyx_pf_12hatshufflepy_12hat_shuffle_decrypt(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_votes_file, PyObject *__pyx_v_proofs_file, PyObject *__pyx_v_decrypted_votes_file, PyObject *__pyx_v_secret_file); /* proto */
+static PyObject *__pyx_pf_12hatshufflepy_14hat_shuffle_test_mixnet(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_n); /* proto */
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_tuple__3;
 static PyObject *__pyx_tuple__5;
 static PyObject *__pyx_tuple__7;
 static PyObject *__pyx_tuple__9;
 static PyObject *__pyx_tuple__11;
+static PyObject *__pyx_tuple__13;
+static PyObject *__pyx_tuple__15;
 static PyObject *__pyx_codeobj__2;
 static PyObject *__pyx_codeobj__4;
 static PyObject *__pyx_codeobj__6;
 static PyObject *__pyx_codeobj__8;
 static PyObject *__pyx_codeobj__10;
 static PyObject *__pyx_codeobj__12;
+static PyObject *__pyx_codeobj__14;
+static PyObject *__pyx_codeobj__16;
 /* Late includes */
 
 /* "hatshufflepy.pyx":4
  * 
  * 
- * def hat_shuffle_create_crs(votes_number, crs_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.create_crs(votes_number, crs_file)
+ * def hat_shuffle_key_gen(votes_number, public_file, secret_file):             # <<<<<<<<<<<<<<
+ *     hatshufflepy.key_gen(votes_number, public_file, secret_file)
  * 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12hatshufflepy_1hat_shuffle_create_crs(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_12hatshufflepy_1hat_shuffle_create_crs = {"hat_shuffle_create_crs", (PyCFunction)__pyx_pw_12hatshufflepy_1hat_shuffle_create_crs, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12hatshufflepy_1hat_shuffle_create_crs(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_12hatshufflepy_1hat_shuffle_key_gen(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_12hatshufflepy_1hat_shuffle_key_gen = {"hat_shuffle_key_gen", (PyCFunction)__pyx_pw_12hatshufflepy_1hat_shuffle_key_gen, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_12hatshufflepy_1hat_shuffle_key_gen(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_votes_number = 0;
-  PyObject *__pyx_v_crs_file = 0;
+  PyObject *__pyx_v_public_file = 0;
+  PyObject *__pyx_v_secret_file = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("hat_shuffle_create_crs (wrapper)", 0);
+  __Pyx_RefNannySetupContext("hat_shuffle_key_gen (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_votes_number,&__pyx_n_s_crs_file,0};
-    PyObject* values[2] = {0,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_votes_number,&__pyx_n_s_public_file,&__pyx_n_s_secret_file,0};
+    PyObject* values[3] = {0,0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_votes_number)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_public_file)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("hat_shuffle_key_gen", 1, 3, 3, 1); __PYX_ERR(0, 4, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_secret_file)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("hat_shuffle_key_gen", 1, 3, 3, 2); __PYX_ERR(0, 4, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hat_shuffle_key_gen") < 0)) __PYX_ERR(0, 4, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+    }
+    __pyx_v_votes_number = values[0];
+    __pyx_v_public_file = values[1];
+    __pyx_v_secret_file = values[2];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("hat_shuffle_key_gen", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 4, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("hatshufflepy.hat_shuffle_key_gen", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_12hatshufflepy_hat_shuffle_key_gen(__pyx_self, __pyx_v_votes_number, __pyx_v_public_file, __pyx_v_secret_file);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_12hatshufflepy_hat_shuffle_key_gen(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_votes_number, PyObject *__pyx_v_public_file, PyObject *__pyx_v_secret_file) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  std::string __pyx_t_2;
+  std::string __pyx_t_3;
+  __Pyx_RefNannySetupContext("hat_shuffle_key_gen", 0);
+
+  /* "hatshufflepy.pyx":5
+ * 
+ * def hat_shuffle_key_gen(votes_number, public_file, secret_file):
+ *     hatshufflepy.key_gen(votes_number, public_file, secret_file)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_votes_number); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_public_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_t_3 = __pyx_convert_string_from_py_std__in_string(__pyx_v_secret_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 5, __pyx_L1_error)
+  (void)(key_gen(__pyx_t_1, __pyx_t_2, __pyx_t_3));
+
+  /* "hatshufflepy.pyx":4
+ * 
+ * 
+ * def hat_shuffle_key_gen(votes_number, public_file, secret_file):             # <<<<<<<<<<<<<<
+ *     hatshufflepy.key_gen(votes_number, public_file, secret_file)
+ * 
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("hatshufflepy.hat_shuffle_key_gen", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "hatshufflepy.pyx":8
+ * 
+ * 
+ * def hat_shuffle_create_crs(votes_number, crs_file, public_file):             # <<<<<<<<<<<<<<
+ *     hatshufflepy.create_crs(votes_number, crs_file, public_file)
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_12hatshufflepy_3hat_shuffle_create_crs(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_12hatshufflepy_3hat_shuffle_create_crs = {"hat_shuffle_create_crs", (PyCFunction)__pyx_pw_12hatshufflepy_3hat_shuffle_create_crs, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_12hatshufflepy_3hat_shuffle_create_crs(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_votes_number = 0;
+  PyObject *__pyx_v_crs_file = 0;
+  PyObject *__pyx_v_public_file = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("hat_shuffle_create_crs (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_votes_number,&__pyx_n_s_crs_file,&__pyx_n_s_public_file,0};
+    PyObject* values[3] = {0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
         case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
         CYTHON_FALLTHROUGH;
         case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
@@ -1118,59 +1258,69 @@ static PyObject *__pyx_pw_12hatshufflepy_1hat_shuffle_create_crs(PyObject *__pyx
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_crs_file)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("hat_shuffle_create_crs", 1, 2, 2, 1); __PYX_ERR(0, 4, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("hat_shuffle_create_crs", 1, 3, 3, 1); __PYX_ERR(0, 8, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_public_file)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("hat_shuffle_create_crs", 1, 3, 3, 2); __PYX_ERR(0, 8, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hat_shuffle_create_crs") < 0)) __PYX_ERR(0, 4, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hat_shuffle_create_crs") < 0)) __PYX_ERR(0, 8, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
     __pyx_v_votes_number = values[0];
     __pyx_v_crs_file = values[1];
+    __pyx_v_public_file = values[2];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("hat_shuffle_create_crs", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 4, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("hat_shuffle_create_crs", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 8, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("hatshufflepy.hat_shuffle_create_crs", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12hatshufflepy_hat_shuffle_create_crs(__pyx_self, __pyx_v_votes_number, __pyx_v_crs_file);
+  __pyx_r = __pyx_pf_12hatshufflepy_2hat_shuffle_create_crs(__pyx_self, __pyx_v_votes_number, __pyx_v_crs_file, __pyx_v_public_file);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12hatshufflepy_hat_shuffle_create_crs(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_votes_number, PyObject *__pyx_v_crs_file) {
+static PyObject *__pyx_pf_12hatshufflepy_2hat_shuffle_create_crs(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_votes_number, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_public_file) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   std::string __pyx_t_2;
+  std::string __pyx_t_3;
   __Pyx_RefNannySetupContext("hat_shuffle_create_crs", 0);
 
-  /* "hatshufflepy.pyx":5
+  /* "hatshufflepy.pyx":9
  * 
- * def hat_shuffle_create_crs(votes_number, crs_file):
- * 	hatshufflepy.create_crs(votes_number, crs_file)             # <<<<<<<<<<<<<<
+ * def hat_shuffle_create_crs(votes_number, crs_file, public_file):
+ *     hatshufflepy.create_crs(votes_number, crs_file, public_file)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_votes_number); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 5, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_crs_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 5, __pyx_L1_error)
-  (void)(create_crs(__pyx_t_1, __pyx_t_2));
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_votes_number); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_crs_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_t_3 = __pyx_convert_string_from_py_std__in_string(__pyx_v_public_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L1_error)
+  (void)(create_crs(__pyx_t_1, __pyx_t_2, __pyx_t_3));
 
-  /* "hatshufflepy.pyx":4
+  /* "hatshufflepy.pyx":8
  * 
  * 
- * def hat_shuffle_create_crs(votes_number, crs_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.create_crs(votes_number, crs_file)
+ * def hat_shuffle_create_crs(votes_number, crs_file, public_file):             # <<<<<<<<<<<<<<
+ *     hatshufflepy.create_crs(votes_number, crs_file, public_file)
  * 
  */
 
@@ -1186,18 +1336,18 @@ static PyObject *__pyx_pf_12hatshufflepy_hat_shuffle_create_crs(CYTHON_UNUSED Py
   return __pyx_r;
 }
 
-/* "hatshufflepy.pyx":8
+/* "hatshufflepy.pyx":12
  * 
  * 
  * def hat_shuffle_generate_encoded_votes(crs_file, votes_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.generate_encoded_votes(crs_file, votes_file)
+ *     hatshufflepy.generate_encoded_votes(crs_file, votes_file)
  * 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12hatshufflepy_3hat_shuffle_generate_encoded_votes(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_12hatshufflepy_3hat_shuffle_generate_encoded_votes = {"hat_shuffle_generate_encoded_votes", (PyCFunction)__pyx_pw_12hatshufflepy_3hat_shuffle_generate_encoded_votes, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12hatshufflepy_3hat_shuffle_generate_encoded_votes(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_12hatshufflepy_5hat_shuffle_generate_encoded_votes(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_12hatshufflepy_5hat_shuffle_generate_encoded_votes = {"hat_shuffle_generate_encoded_votes", (PyCFunction)__pyx_pw_12hatshufflepy_5hat_shuffle_generate_encoded_votes, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_12hatshufflepy_5hat_shuffle_generate_encoded_votes(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_crs_file = 0;
   PyObject *__pyx_v_votes_file = 0;
   PyObject *__pyx_r = 0;
@@ -1226,11 +1376,11 @@ static PyObject *__pyx_pw_12hatshufflepy_3hat_shuffle_generate_encoded_votes(PyO
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_votes_file)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("hat_shuffle_generate_encoded_votes", 1, 2, 2, 1); __PYX_ERR(0, 8, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("hat_shuffle_generate_encoded_votes", 1, 2, 2, 1); __PYX_ERR(0, 12, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hat_shuffle_generate_encoded_votes") < 0)) __PYX_ERR(0, 8, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hat_shuffle_generate_encoded_votes") < 0)) __PYX_ERR(0, 12, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -1243,42 +1393,42 @@ static PyObject *__pyx_pw_12hatshufflepy_3hat_shuffle_generate_encoded_votes(PyO
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("hat_shuffle_generate_encoded_votes", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 8, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("hat_shuffle_generate_encoded_votes", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 12, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("hatshufflepy.hat_shuffle_generate_encoded_votes", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12hatshufflepy_2hat_shuffle_generate_encoded_votes(__pyx_self, __pyx_v_crs_file, __pyx_v_votes_file);
+  __pyx_r = __pyx_pf_12hatshufflepy_4hat_shuffle_generate_encoded_votes(__pyx_self, __pyx_v_crs_file, __pyx_v_votes_file);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12hatshufflepy_2hat_shuffle_generate_encoded_votes(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_votes_file) {
+static PyObject *__pyx_pf_12hatshufflepy_4hat_shuffle_generate_encoded_votes(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_votes_file) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   std::string __pyx_t_1;
   std::string __pyx_t_2;
   __Pyx_RefNannySetupContext("hat_shuffle_generate_encoded_votes", 0);
 
-  /* "hatshufflepy.pyx":9
+  /* "hatshufflepy.pyx":13
  * 
  * def hat_shuffle_generate_encoded_votes(crs_file, votes_file):
- * 	hatshufflepy.generate_encoded_votes(crs_file, votes_file)             # <<<<<<<<<<<<<<
+ *     hatshufflepy.generate_encoded_votes(crs_file, votes_file)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_crs_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_votes_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_crs_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_votes_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 13, __pyx_L1_error)
   (void)(generate_encoded_votes(__pyx_t_1, __pyx_t_2));
 
-  /* "hatshufflepy.pyx":8
+  /* "hatshufflepy.pyx":12
  * 
  * 
  * def hat_shuffle_generate_encoded_votes(crs_file, votes_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.generate_encoded_votes(crs_file, votes_file)
+ *     hatshufflepy.generate_encoded_votes(crs_file, votes_file)
  * 
  */
 
@@ -1294,18 +1444,18 @@ static PyObject *__pyx_pf_12hatshufflepy_2hat_shuffle_generate_encoded_votes(CYT
   return __pyx_r;
 }
 
-/* "hatshufflepy.pyx":12
+/* "hatshufflepy.pyx":16
  * 
  * 
  * def hat_shuffle_encrypt(crs_file, votes_file, ciphertexts_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.encrypt(crs_file, votes_file, ciphertexts_file)
+ *     hatshufflepy.encrypt(crs_file, votes_file, ciphertexts_file)
  * 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12hatshufflepy_5hat_shuffle_encrypt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_12hatshufflepy_5hat_shuffle_encrypt = {"hat_shuffle_encrypt", (PyCFunction)__pyx_pw_12hatshufflepy_5hat_shuffle_encrypt, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12hatshufflepy_5hat_shuffle_encrypt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_12hatshufflepy_7hat_shuffle_encrypt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_12hatshufflepy_7hat_shuffle_encrypt = {"hat_shuffle_encrypt", (PyCFunction)__pyx_pw_12hatshufflepy_7hat_shuffle_encrypt, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_12hatshufflepy_7hat_shuffle_encrypt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_crs_file = 0;
   PyObject *__pyx_v_votes_file = 0;
   PyObject *__pyx_v_ciphertexts_file = 0;
@@ -1337,17 +1487,17 @@ static PyObject *__pyx_pw_12hatshufflepy_5hat_shuffle_encrypt(PyObject *__pyx_se
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_votes_file)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("hat_shuffle_encrypt", 1, 3, 3, 1); __PYX_ERR(0, 12, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("hat_shuffle_encrypt", 1, 3, 3, 1); __PYX_ERR(0, 16, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_ciphertexts_file)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("hat_shuffle_encrypt", 1, 3, 3, 2); __PYX_ERR(0, 12, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("hat_shuffle_encrypt", 1, 3, 3, 2); __PYX_ERR(0, 16, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hat_shuffle_encrypt") < 0)) __PYX_ERR(0, 12, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hat_shuffle_encrypt") < 0)) __PYX_ERR(0, 16, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -1362,20 +1512,20 @@ static PyObject *__pyx_pw_12hatshufflepy_5hat_shuffle_encrypt(PyObject *__pyx_se
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("hat_shuffle_encrypt", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 12, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("hat_shuffle_encrypt", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 16, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("hatshufflepy.hat_shuffle_encrypt", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12hatshufflepy_4hat_shuffle_encrypt(__pyx_self, __pyx_v_crs_file, __pyx_v_votes_file, __pyx_v_ciphertexts_file);
+  __pyx_r = __pyx_pf_12hatshufflepy_6hat_shuffle_encrypt(__pyx_self, __pyx_v_crs_file, __pyx_v_votes_file, __pyx_v_ciphertexts_file);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12hatshufflepy_4hat_shuffle_encrypt(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_votes_file, PyObject *__pyx_v_ciphertexts_file) {
+static PyObject *__pyx_pf_12hatshufflepy_6hat_shuffle_encrypt(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_votes_file, PyObject *__pyx_v_ciphertexts_file) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   std::string __pyx_t_1;
@@ -1383,23 +1533,23 @@ static PyObject *__pyx_pf_12hatshufflepy_4hat_shuffle_encrypt(CYTHON_UNUSED PyOb
   std::string __pyx_t_3;
   __Pyx_RefNannySetupContext("hat_shuffle_encrypt", 0);
 
-  /* "hatshufflepy.pyx":13
+  /* "hatshufflepy.pyx":17
  * 
  * def hat_shuffle_encrypt(crs_file, votes_file, ciphertexts_file):
- * 	hatshufflepy.encrypt(crs_file, votes_file, ciphertexts_file)             # <<<<<<<<<<<<<<
+ *     hatshufflepy.encrypt(crs_file, votes_file, ciphertexts_file)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_crs_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 13, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_votes_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 13, __pyx_L1_error)
-  __pyx_t_3 = __pyx_convert_string_from_py_std__in_string(__pyx_v_ciphertexts_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_crs_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_votes_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_3 = __pyx_convert_string_from_py_std__in_string(__pyx_v_ciphertexts_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 17, __pyx_L1_error)
   (void)(encrypt(__pyx_t_1, __pyx_t_2, __pyx_t_3));
 
-  /* "hatshufflepy.pyx":12
+  /* "hatshufflepy.pyx":16
  * 
  * 
  * def hat_shuffle_encrypt(crs_file, votes_file, ciphertexts_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.encrypt(crs_file, votes_file, ciphertexts_file)
+ *     hatshufflepy.encrypt(crs_file, votes_file, ciphertexts_file)
  * 
  */
 
@@ -1415,18 +1565,18 @@ static PyObject *__pyx_pf_12hatshufflepy_4hat_shuffle_encrypt(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "hatshufflepy.pyx":16
+/* "hatshufflepy.pyx":20
  * 
  * 
  * def hat_shuffle_prove(crs_file, ciphertexts_file, proofs_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.prove(crs_file, ciphertexts_file, proofs_file)
+ *     hatshufflepy.prove(crs_file, ciphertexts_file, proofs_file)
  * 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12hatshufflepy_7hat_shuffle_prove(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_12hatshufflepy_7hat_shuffle_prove = {"hat_shuffle_prove", (PyCFunction)__pyx_pw_12hatshufflepy_7hat_shuffle_prove, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12hatshufflepy_7hat_shuffle_prove(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_12hatshufflepy_9hat_shuffle_prove(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_12hatshufflepy_9hat_shuffle_prove = {"hat_shuffle_prove", (PyCFunction)__pyx_pw_12hatshufflepy_9hat_shuffle_prove, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_12hatshufflepy_9hat_shuffle_prove(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_crs_file = 0;
   PyObject *__pyx_v_ciphertexts_file = 0;
   PyObject *__pyx_v_proofs_file = 0;
@@ -1458,17 +1608,17 @@ static PyObject *__pyx_pw_12hatshufflepy_7hat_shuffle_prove(PyObject *__pyx_self
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_ciphertexts_file)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("hat_shuffle_prove", 1, 3, 3, 1); __PYX_ERR(0, 16, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("hat_shuffle_prove", 1, 3, 3, 1); __PYX_ERR(0, 20, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_proofs_file)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("hat_shuffle_prove", 1, 3, 3, 2); __PYX_ERR(0, 16, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("hat_shuffle_prove", 1, 3, 3, 2); __PYX_ERR(0, 20, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hat_shuffle_prove") < 0)) __PYX_ERR(0, 16, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hat_shuffle_prove") < 0)) __PYX_ERR(0, 20, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -1483,20 +1633,20 @@ static PyObject *__pyx_pw_12hatshufflepy_7hat_shuffle_prove(PyObject *__pyx_self
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("hat_shuffle_prove", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 16, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("hat_shuffle_prove", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 20, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("hatshufflepy.hat_shuffle_prove", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12hatshufflepy_6hat_shuffle_prove(__pyx_self, __pyx_v_crs_file, __pyx_v_ciphertexts_file, __pyx_v_proofs_file);
+  __pyx_r = __pyx_pf_12hatshufflepy_8hat_shuffle_prove(__pyx_self, __pyx_v_crs_file, __pyx_v_ciphertexts_file, __pyx_v_proofs_file);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12hatshufflepy_6hat_shuffle_prove(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_ciphertexts_file, PyObject *__pyx_v_proofs_file) {
+static PyObject *__pyx_pf_12hatshufflepy_8hat_shuffle_prove(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_ciphertexts_file, PyObject *__pyx_v_proofs_file) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   std::string __pyx_t_1;
@@ -1504,23 +1654,23 @@ static PyObject *__pyx_pf_12hatshufflepy_6hat_shuffle_prove(CYTHON_UNUSED PyObje
   std::string __pyx_t_3;
   __Pyx_RefNannySetupContext("hat_shuffle_prove", 0);
 
-  /* "hatshufflepy.pyx":17
+  /* "hatshufflepy.pyx":21
  * 
  * def hat_shuffle_prove(crs_file, ciphertexts_file, proofs_file):
- * 	hatshufflepy.prove(crs_file, ciphertexts_file, proofs_file)             # <<<<<<<<<<<<<<
+ *     hatshufflepy.prove(crs_file, ciphertexts_file, proofs_file)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_crs_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 17, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_ciphertexts_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 17, __pyx_L1_error)
-  __pyx_t_3 = __pyx_convert_string_from_py_std__in_string(__pyx_v_proofs_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_crs_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_ciphertexts_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_3 = __pyx_convert_string_from_py_std__in_string(__pyx_v_proofs_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 21, __pyx_L1_error)
   (void)(prove(__pyx_t_1, __pyx_t_2, __pyx_t_3));
 
-  /* "hatshufflepy.pyx":16
+  /* "hatshufflepy.pyx":20
  * 
  * 
  * def hat_shuffle_prove(crs_file, ciphertexts_file, proofs_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.prove(crs_file, ciphertexts_file, proofs_file)
+ *     hatshufflepy.prove(crs_file, ciphertexts_file, proofs_file)
  * 
  */
 
@@ -1536,18 +1686,18 @@ static PyObject *__pyx_pf_12hatshufflepy_6hat_shuffle_prove(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "hatshufflepy.pyx":20
+/* "hatshufflepy.pyx":24
  * 
  * 
  * def hat_shuffle_verify(crs_file, ciphertexts_file, proofs_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.verify(crs_file, ciphertexts_file, proofs_file)
+ *     return hatshufflepy.verify(crs_file, ciphertexts_file, proofs_file)
  * 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12hatshufflepy_9hat_shuffle_verify(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_12hatshufflepy_9hat_shuffle_verify = {"hat_shuffle_verify", (PyCFunction)__pyx_pw_12hatshufflepy_9hat_shuffle_verify, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12hatshufflepy_9hat_shuffle_verify(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_12hatshufflepy_11hat_shuffle_verify(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_12hatshufflepy_11hat_shuffle_verify = {"hat_shuffle_verify", (PyCFunction)__pyx_pw_12hatshufflepy_11hat_shuffle_verify, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_12hatshufflepy_11hat_shuffle_verify(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_crs_file = 0;
   PyObject *__pyx_v_ciphertexts_file = 0;
   PyObject *__pyx_v_proofs_file = 0;
@@ -1579,17 +1729,17 @@ static PyObject *__pyx_pw_12hatshufflepy_9hat_shuffle_verify(PyObject *__pyx_sel
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_ciphertexts_file)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("hat_shuffle_verify", 1, 3, 3, 1); __PYX_ERR(0, 20, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("hat_shuffle_verify", 1, 3, 3, 1); __PYX_ERR(0, 24, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_proofs_file)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("hat_shuffle_verify", 1, 3, 3, 2); __PYX_ERR(0, 20, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("hat_shuffle_verify", 1, 3, 3, 2); __PYX_ERR(0, 24, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hat_shuffle_verify") < 0)) __PYX_ERR(0, 20, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hat_shuffle_verify") < 0)) __PYX_ERR(0, 24, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -1604,51 +1754,56 @@ static PyObject *__pyx_pw_12hatshufflepy_9hat_shuffle_verify(PyObject *__pyx_sel
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("hat_shuffle_verify", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 20, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("hat_shuffle_verify", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 24, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("hatshufflepy.hat_shuffle_verify", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12hatshufflepy_8hat_shuffle_verify(__pyx_self, __pyx_v_crs_file, __pyx_v_ciphertexts_file, __pyx_v_proofs_file);
+  __pyx_r = __pyx_pf_12hatshufflepy_10hat_shuffle_verify(__pyx_self, __pyx_v_crs_file, __pyx_v_ciphertexts_file, __pyx_v_proofs_file);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12hatshufflepy_8hat_shuffle_verify(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_ciphertexts_file, PyObject *__pyx_v_proofs_file) {
+static PyObject *__pyx_pf_12hatshufflepy_10hat_shuffle_verify(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_ciphertexts_file, PyObject *__pyx_v_proofs_file) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   std::string __pyx_t_1;
   std::string __pyx_t_2;
   std::string __pyx_t_3;
+  PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("hat_shuffle_verify", 0);
 
-  /* "hatshufflepy.pyx":21
+  /* "hatshufflepy.pyx":25
  * 
  * def hat_shuffle_verify(crs_file, ciphertexts_file, proofs_file):
- * 	hatshufflepy.verify(crs_file, ciphertexts_file, proofs_file)             # <<<<<<<<<<<<<<
+ *     return hatshufflepy.verify(crs_file, ciphertexts_file, proofs_file)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_crs_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 21, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_ciphertexts_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 21, __pyx_L1_error)
-  __pyx_t_3 = __pyx_convert_string_from_py_std__in_string(__pyx_v_proofs_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 21, __pyx_L1_error)
-  (void)(verify(__pyx_t_1, __pyx_t_2, __pyx_t_3));
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_crs_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_ciphertexts_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_3 = __pyx_convert_string_from_py_std__in_string(__pyx_v_proofs_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyBool_FromLong(verify(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_r = __pyx_t_4;
+  __pyx_t_4 = 0;
+  goto __pyx_L0;
 
-  /* "hatshufflepy.pyx":20
+  /* "hatshufflepy.pyx":24
  * 
  * 
  * def hat_shuffle_verify(crs_file, ciphertexts_file, proofs_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.verify(crs_file, ciphertexts_file, proofs_file)
+ *     return hatshufflepy.verify(crs_file, ciphertexts_file, proofs_file)
  * 
  */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_4);
   __Pyx_AddTraceback("hatshufflepy.hat_shuffle_verify", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -1657,32 +1812,35 @@ static PyObject *__pyx_pf_12hatshufflepy_8hat_shuffle_verify(CYTHON_UNUSED PyObj
   return __pyx_r;
 }
 
-/* "hatshufflepy.pyx":24
+/* "hatshufflepy.pyx":28
  * 
  * 
  * def hat_shuffle_decrypt(crs_file, votes_file, proofs_file,             # <<<<<<<<<<<<<<
- *                         decrypted_votes_file):
- * 	hatshufflepy.decrypt(crs_file, votes_file, proofs_file,
+ *                         decrypted_votes_file, secret_file):
+ *     hatshufflepy.decrypt(crs_file, votes_file, proofs_file,
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12hatshufflepy_11hat_shuffle_decrypt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_12hatshufflepy_11hat_shuffle_decrypt = {"hat_shuffle_decrypt", (PyCFunction)__pyx_pw_12hatshufflepy_11hat_shuffle_decrypt, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12hatshufflepy_11hat_shuffle_decrypt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_12hatshufflepy_13hat_shuffle_decrypt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_12hatshufflepy_13hat_shuffle_decrypt = {"hat_shuffle_decrypt", (PyCFunction)__pyx_pw_12hatshufflepy_13hat_shuffle_decrypt, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_12hatshufflepy_13hat_shuffle_decrypt(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_crs_file = 0;
   PyObject *__pyx_v_votes_file = 0;
   PyObject *__pyx_v_proofs_file = 0;
   PyObject *__pyx_v_decrypted_votes_file = 0;
+  PyObject *__pyx_v_secret_file = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("hat_shuffle_decrypt (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_crs_file,&__pyx_n_s_votes_file,&__pyx_n_s_proofs_file,&__pyx_n_s_decrypted_votes_file,0};
-    PyObject* values[4] = {0,0,0,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_crs_file,&__pyx_n_s_votes_file,&__pyx_n_s_proofs_file,&__pyx_n_s_decrypted_votes_file,&__pyx_n_s_secret_file,0};
+    PyObject* values[5] = {0,0,0,0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
+        case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
+        CYTHON_FALLTHROUGH;
         case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
         CYTHON_FALLTHROUGH;
         case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
@@ -1703,92 +1861,106 @@ static PyObject *__pyx_pw_12hatshufflepy_11hat_shuffle_decrypt(PyObject *__pyx_s
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_votes_file)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("hat_shuffle_decrypt", 1, 4, 4, 1); __PYX_ERR(0, 24, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("hat_shuffle_decrypt", 1, 5, 5, 1); __PYX_ERR(0, 28, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_proofs_file)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("hat_shuffle_decrypt", 1, 4, 4, 2); __PYX_ERR(0, 24, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("hat_shuffle_decrypt", 1, 5, 5, 2); __PYX_ERR(0, 28, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_decrypted_votes_file)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("hat_shuffle_decrypt", 1, 4, 4, 3); __PYX_ERR(0, 24, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("hat_shuffle_decrypt", 1, 5, 5, 3); __PYX_ERR(0, 28, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  4:
+        if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_secret_file)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("hat_shuffle_decrypt", 1, 5, 5, 4); __PYX_ERR(0, 28, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hat_shuffle_decrypt") < 0)) __PYX_ERR(0, 24, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hat_shuffle_decrypt") < 0)) __PYX_ERR(0, 28, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+      values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
     }
     __pyx_v_crs_file = values[0];
     __pyx_v_votes_file = values[1];
     __pyx_v_proofs_file = values[2];
     __pyx_v_decrypted_votes_file = values[3];
+    __pyx_v_secret_file = values[4];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("hat_shuffle_decrypt", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 24, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("hat_shuffle_decrypt", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 28, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("hatshufflepy.hat_shuffle_decrypt", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12hatshufflepy_10hat_shuffle_decrypt(__pyx_self, __pyx_v_crs_file, __pyx_v_votes_file, __pyx_v_proofs_file, __pyx_v_decrypted_votes_file);
+  __pyx_r = __pyx_pf_12hatshufflepy_12hat_shuffle_decrypt(__pyx_self, __pyx_v_crs_file, __pyx_v_votes_file, __pyx_v_proofs_file, __pyx_v_decrypted_votes_file, __pyx_v_secret_file);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12hatshufflepy_10hat_shuffle_decrypt(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_votes_file, PyObject *__pyx_v_proofs_file, PyObject *__pyx_v_decrypted_votes_file) {
+static PyObject *__pyx_pf_12hatshufflepy_12hat_shuffle_decrypt(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_crs_file, PyObject *__pyx_v_votes_file, PyObject *__pyx_v_proofs_file, PyObject *__pyx_v_decrypted_votes_file, PyObject *__pyx_v_secret_file) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   std::string __pyx_t_1;
   std::string __pyx_t_2;
   std::string __pyx_t_3;
   std::string __pyx_t_4;
+  std::string __pyx_t_5;
   __Pyx_RefNannySetupContext("hat_shuffle_decrypt", 0);
 
-  /* "hatshufflepy.pyx":26
+  /* "hatshufflepy.pyx":30
  * def hat_shuffle_decrypt(crs_file, votes_file, proofs_file,
- *                         decrypted_votes_file):
- * 	hatshufflepy.decrypt(crs_file, votes_file, proofs_file,             # <<<<<<<<<<<<<<
- *                       decrypted_votes_file)
+ *                         decrypted_votes_file, secret_file):
+ *     hatshufflepy.decrypt(crs_file, votes_file, proofs_file,             # <<<<<<<<<<<<<<
+ *                          decrypted_votes_file, secret_file)
+ * 
  */
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_crs_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 26, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_votes_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 26, __pyx_L1_error)
-  __pyx_t_3 = __pyx_convert_string_from_py_std__in_string(__pyx_v_proofs_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_crs_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_v_votes_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_t_3 = __pyx_convert_string_from_py_std__in_string(__pyx_v_proofs_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 30, __pyx_L1_error)
 
-  /* "hatshufflepy.pyx":27
- *                         decrypted_votes_file):
- * 	hatshufflepy.decrypt(crs_file, votes_file, proofs_file,
- *                       decrypted_votes_file)             # <<<<<<<<<<<<<<
+  /* "hatshufflepy.pyx":31
+ *                         decrypted_votes_file, secret_file):
+ *     hatshufflepy.decrypt(crs_file, votes_file, proofs_file,
+ *                          decrypted_votes_file, secret_file)             # <<<<<<<<<<<<<<
+ * 
+ * 
  */
-  __pyx_t_4 = __pyx_convert_string_from_py_std__in_string(__pyx_v_decrypted_votes_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_4 = __pyx_convert_string_from_py_std__in_string(__pyx_v_decrypted_votes_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_5 = __pyx_convert_string_from_py_std__in_string(__pyx_v_secret_file); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 31, __pyx_L1_error)
 
-  /* "hatshufflepy.pyx":26
+  /* "hatshufflepy.pyx":30
  * def hat_shuffle_decrypt(crs_file, votes_file, proofs_file,
- *                         decrypted_votes_file):
- * 	hatshufflepy.decrypt(crs_file, votes_file, proofs_file,             # <<<<<<<<<<<<<<
- *                       decrypted_votes_file)
+ *                         decrypted_votes_file, secret_file):
+ *     hatshufflepy.decrypt(crs_file, votes_file, proofs_file,             # <<<<<<<<<<<<<<
+ *                          decrypted_votes_file, secret_file)
+ * 
  */
-  (void)(decrypt(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4));
+  (void)(decrypt(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5));
 
-  /* "hatshufflepy.pyx":24
+  /* "hatshufflepy.pyx":28
  * 
  * 
  * def hat_shuffle_decrypt(crs_file, votes_file, proofs_file,             # <<<<<<<<<<<<<<
- *                         decrypted_votes_file):
- * 	hatshufflepy.decrypt(crs_file, votes_file, proofs_file,
+ *                         decrypted_votes_file, secret_file):
+ *     hatshufflepy.decrypt(crs_file, votes_file, proofs_file,
  */
 
   /* function exit code */
@@ -1796,6 +1968,60 @@ static PyObject *__pyx_pf_12hatshufflepy_10hat_shuffle_decrypt(CYTHON_UNUSED PyO
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_AddTraceback("hatshufflepy.hat_shuffle_decrypt", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "hatshufflepy.pyx":34
+ * 
+ * 
+ * def hat_shuffle_test_mixnet(n):             # <<<<<<<<<<<<<<
+ *     hatshufflepy.test_mixnet(n)
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_12hatshufflepy_15hat_shuffle_test_mixnet(PyObject *__pyx_self, PyObject *__pyx_v_n); /*proto*/
+static PyMethodDef __pyx_mdef_12hatshufflepy_15hat_shuffle_test_mixnet = {"hat_shuffle_test_mixnet", (PyCFunction)__pyx_pw_12hatshufflepy_15hat_shuffle_test_mixnet, METH_O, 0};
+static PyObject *__pyx_pw_12hatshufflepy_15hat_shuffle_test_mixnet(PyObject *__pyx_self, PyObject *__pyx_v_n) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("hat_shuffle_test_mixnet (wrapper)", 0);
+  __pyx_r = __pyx_pf_12hatshufflepy_14hat_shuffle_test_mixnet(__pyx_self, ((PyObject *)__pyx_v_n));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_12hatshufflepy_14hat_shuffle_test_mixnet(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_n) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  __Pyx_RefNannySetupContext("hat_shuffle_test_mixnet", 0);
+
+  /* "hatshufflepy.pyx":35
+ * 
+ * def hat_shuffle_test_mixnet(n):
+ *     hatshufflepy.test_mixnet(n)             # <<<<<<<<<<<<<<
+ */
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 35, __pyx_L1_error)
+  (void)(test_mixnet(__pyx_t_1));
+
+  /* "hatshufflepy.pyx":34
+ * 
+ * 
+ * def hat_shuffle_test_mixnet(n):             # <<<<<<<<<<<<<<
+ *     hatshufflepy.test_mixnet(n)
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("hatshufflepy.hat_shuffle_test_mixnet", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -1901,12 +2127,17 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_hat_shuffle_decrypt, __pyx_k_hat_shuffle_decrypt, sizeof(__pyx_k_hat_shuffle_decrypt), 0, 0, 1, 1},
   {&__pyx_n_s_hat_shuffle_encrypt, __pyx_k_hat_shuffle_encrypt, sizeof(__pyx_k_hat_shuffle_encrypt), 0, 0, 1, 1},
   {&__pyx_n_s_hat_shuffle_generate_encoded_vot, __pyx_k_hat_shuffle_generate_encoded_vot, sizeof(__pyx_k_hat_shuffle_generate_encoded_vot), 0, 0, 1, 1},
+  {&__pyx_n_s_hat_shuffle_key_gen, __pyx_k_hat_shuffle_key_gen, sizeof(__pyx_k_hat_shuffle_key_gen), 0, 0, 1, 1},
   {&__pyx_n_s_hat_shuffle_prove, __pyx_k_hat_shuffle_prove, sizeof(__pyx_k_hat_shuffle_prove), 0, 0, 1, 1},
+  {&__pyx_n_s_hat_shuffle_test_mixnet, __pyx_k_hat_shuffle_test_mixnet, sizeof(__pyx_k_hat_shuffle_test_mixnet), 0, 0, 1, 1},
   {&__pyx_n_s_hat_shuffle_verify, __pyx_k_hat_shuffle_verify, sizeof(__pyx_k_hat_shuffle_verify), 0, 0, 1, 1},
   {&__pyx_n_s_hatshufflepy, __pyx_k_hatshufflepy, sizeof(__pyx_k_hatshufflepy), 0, 0, 1, 1},
   {&__pyx_kp_s_hatshufflepy_hatshufflepy_pyx, __pyx_k_hatshufflepy_hatshufflepy_pyx, sizeof(__pyx_k_hatshufflepy_hatshufflepy_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
+  {&__pyx_n_s_n, __pyx_k_n, sizeof(__pyx_k_n), 0, 0, 1, 1},
   {&__pyx_n_s_proofs_file, __pyx_k_proofs_file, sizeof(__pyx_k_proofs_file), 0, 0, 1, 1},
+  {&__pyx_n_s_public_file, __pyx_k_public_file, sizeof(__pyx_k_public_file), 0, 0, 1, 1},
+  {&__pyx_n_s_secret_file, __pyx_k_secret_file, sizeof(__pyx_k_secret_file), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {&__pyx_n_s_votes_file, __pyx_k_votes_file, sizeof(__pyx_k_votes_file), 0, 0, 1, 1},
   {&__pyx_n_s_votes_number, __pyx_k_votes_number, sizeof(__pyx_k_votes_number), 0, 0, 1, 1},
@@ -1923,74 +2154,97 @@ static int __Pyx_InitCachedConstants(void) {
   /* "hatshufflepy.pyx":4
  * 
  * 
- * def hat_shuffle_create_crs(votes_number, crs_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.create_crs(votes_number, crs_file)
+ * def hat_shuffle_key_gen(votes_number, public_file, secret_file):             # <<<<<<<<<<<<<<
+ *     hatshufflepy.key_gen(votes_number, public_file, secret_file)
  * 
  */
-  __pyx_tuple_ = PyTuple_Pack(2, __pyx_n_s_votes_number, __pyx_n_s_crs_file); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(3, __pyx_n_s_votes_number, __pyx_n_s_public_file, __pyx_n_s_secret_file); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hatshufflepy_hatshufflepy_pyx, __pyx_n_s_hat_shuffle_create_crs, 4, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hatshufflepy_hatshufflepy_pyx, __pyx_n_s_hat_shuffle_key_gen, 4, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 4, __pyx_L1_error)
 
   /* "hatshufflepy.pyx":8
  * 
  * 
- * def hat_shuffle_generate_encoded_votes(crs_file, votes_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.generate_encoded_votes(crs_file, votes_file)
+ * def hat_shuffle_create_crs(votes_number, crs_file, public_file):             # <<<<<<<<<<<<<<
+ *     hatshufflepy.create_crs(votes_number, crs_file, public_file)
  * 
  */
-  __pyx_tuple__3 = PyTuple_Pack(2, __pyx_n_s_crs_file, __pyx_n_s_votes_file); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(3, __pyx_n_s_votes_number, __pyx_n_s_crs_file, __pyx_n_s_public_file); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
-  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hatshufflepy_hatshufflepy_pyx, __pyx_n_s_hat_shuffle_generate_encoded_vot, 8, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hatshufflepy_hatshufflepy_pyx, __pyx_n_s_hat_shuffle_create_crs, 8, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 8, __pyx_L1_error)
 
   /* "hatshufflepy.pyx":12
  * 
  * 
- * def hat_shuffle_encrypt(crs_file, votes_file, ciphertexts_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.encrypt(crs_file, votes_file, ciphertexts_file)
+ * def hat_shuffle_generate_encoded_votes(crs_file, votes_file):             # <<<<<<<<<<<<<<
+ *     hatshufflepy.generate_encoded_votes(crs_file, votes_file)
  * 
  */
-  __pyx_tuple__5 = PyTuple_Pack(3, __pyx_n_s_crs_file, __pyx_n_s_votes_file, __pyx_n_s_ciphertexts_file); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(2, __pyx_n_s_crs_file, __pyx_n_s_votes_file); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
-  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hatshufflepy_hatshufflepy_pyx, __pyx_n_s_hat_shuffle_encrypt, 12, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hatshufflepy_hatshufflepy_pyx, __pyx_n_s_hat_shuffle_generate_encoded_vot, 12, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 12, __pyx_L1_error)
 
   /* "hatshufflepy.pyx":16
  * 
  * 
- * def hat_shuffle_prove(crs_file, ciphertexts_file, proofs_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.prove(crs_file, ciphertexts_file, proofs_file)
+ * def hat_shuffle_encrypt(crs_file, votes_file, ciphertexts_file):             # <<<<<<<<<<<<<<
+ *     hatshufflepy.encrypt(crs_file, votes_file, ciphertexts_file)
  * 
  */
-  __pyx_tuple__7 = PyTuple_Pack(3, __pyx_n_s_crs_file, __pyx_n_s_ciphertexts_file, __pyx_n_s_proofs_file); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_tuple__7 = PyTuple_Pack(3, __pyx_n_s_crs_file, __pyx_n_s_votes_file, __pyx_n_s_ciphertexts_file); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
-  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hatshufflepy_hatshufflepy_pyx, __pyx_n_s_hat_shuffle_prove, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hatshufflepy_hatshufflepy_pyx, __pyx_n_s_hat_shuffle_encrypt, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 16, __pyx_L1_error)
 
   /* "hatshufflepy.pyx":20
  * 
  * 
- * def hat_shuffle_verify(crs_file, ciphertexts_file, proofs_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.verify(crs_file, ciphertexts_file, proofs_file)
+ * def hat_shuffle_prove(crs_file, ciphertexts_file, proofs_file):             # <<<<<<<<<<<<<<
+ *     hatshufflepy.prove(crs_file, ciphertexts_file, proofs_file)
  * 
  */
   __pyx_tuple__9 = PyTuple_Pack(3, __pyx_n_s_crs_file, __pyx_n_s_ciphertexts_file, __pyx_n_s_proofs_file); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
-  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hatshufflepy_hatshufflepy_pyx, __pyx_n_s_hat_shuffle_verify, 20, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hatshufflepy_hatshufflepy_pyx, __pyx_n_s_hat_shuffle_prove, 20, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 20, __pyx_L1_error)
 
   /* "hatshufflepy.pyx":24
  * 
  * 
- * def hat_shuffle_decrypt(crs_file, votes_file, proofs_file,             # <<<<<<<<<<<<<<
- *                         decrypted_votes_file):
- * 	hatshufflepy.decrypt(crs_file, votes_file, proofs_file,
+ * def hat_shuffle_verify(crs_file, ciphertexts_file, proofs_file):             # <<<<<<<<<<<<<<
+ *     return hatshufflepy.verify(crs_file, ciphertexts_file, proofs_file)
+ * 
  */
-  __pyx_tuple__11 = PyTuple_Pack(4, __pyx_n_s_crs_file, __pyx_n_s_votes_file, __pyx_n_s_proofs_file, __pyx_n_s_decrypted_votes_file); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_tuple__11 = PyTuple_Pack(3, __pyx_n_s_crs_file, __pyx_n_s_ciphertexts_file, __pyx_n_s_proofs_file); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
-  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(4, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hatshufflepy_hatshufflepy_pyx, __pyx_n_s_hat_shuffle_decrypt, 24, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hatshufflepy_hatshufflepy_pyx, __pyx_n_s_hat_shuffle_verify, 24, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 24, __pyx_L1_error)
+
+  /* "hatshufflepy.pyx":28
+ * 
+ * 
+ * def hat_shuffle_decrypt(crs_file, votes_file, proofs_file,             # <<<<<<<<<<<<<<
+ *                         decrypted_votes_file, secret_file):
+ *     hatshufflepy.decrypt(crs_file, votes_file, proofs_file,
+ */
+  __pyx_tuple__13 = PyTuple_Pack(5, __pyx_n_s_crs_file, __pyx_n_s_votes_file, __pyx_n_s_proofs_file, __pyx_n_s_decrypted_votes_file, __pyx_n_s_secret_file); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__13);
+  __Pyx_GIVEREF(__pyx_tuple__13);
+  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(5, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hatshufflepy_hatshufflepy_pyx, __pyx_n_s_hat_shuffle_decrypt, 28, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 28, __pyx_L1_error)
+
+  /* "hatshufflepy.pyx":34
+ * 
+ * 
+ * def hat_shuffle_test_mixnet(n):             # <<<<<<<<<<<<<<
+ *     hatshufflepy.test_mixnet(n)
+ */
+  __pyx_tuple__15 = PyTuple_Pack(1, __pyx_n_s_n); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__15);
+  __Pyx_GIVEREF(__pyx_tuple__15);
+  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hatshufflepy_hatshufflepy_pyx, __pyx_n_s_hat_shuffle_test_mixnet, 34, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -2245,73 +2499,96 @@ if (!__Pyx_RefNanny) {
   /* "hatshufflepy.pyx":4
  * 
  * 
- * def hat_shuffle_create_crs(votes_number, crs_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.create_crs(votes_number, crs_file)
+ * def hat_shuffle_key_gen(votes_number, public_file, secret_file):             # <<<<<<<<<<<<<<
+ *     hatshufflepy.key_gen(votes_number, public_file, secret_file)
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_12hatshufflepy_1hat_shuffle_create_crs, NULL, __pyx_n_s_hatshufflepy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_12hatshufflepy_1hat_shuffle_key_gen, NULL, __pyx_n_s_hatshufflepy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hat_shuffle_create_crs, __pyx_t_1) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hat_shuffle_key_gen, __pyx_t_1) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "hatshufflepy.pyx":8
  * 
  * 
- * def hat_shuffle_generate_encoded_votes(crs_file, votes_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.generate_encoded_votes(crs_file, votes_file)
+ * def hat_shuffle_create_crs(votes_number, crs_file, public_file):             # <<<<<<<<<<<<<<
+ *     hatshufflepy.create_crs(votes_number, crs_file, public_file)
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_12hatshufflepy_3hat_shuffle_generate_encoded_votes, NULL, __pyx_n_s_hatshufflepy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_12hatshufflepy_3hat_shuffle_create_crs, NULL, __pyx_n_s_hatshufflepy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hat_shuffle_generate_encoded_vot, __pyx_t_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hat_shuffle_create_crs, __pyx_t_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "hatshufflepy.pyx":12
  * 
  * 
- * def hat_shuffle_encrypt(crs_file, votes_file, ciphertexts_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.encrypt(crs_file, votes_file, ciphertexts_file)
+ * def hat_shuffle_generate_encoded_votes(crs_file, votes_file):             # <<<<<<<<<<<<<<
+ *     hatshufflepy.generate_encoded_votes(crs_file, votes_file)
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_12hatshufflepy_5hat_shuffle_encrypt, NULL, __pyx_n_s_hatshufflepy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_12hatshufflepy_5hat_shuffle_generate_encoded_votes, NULL, __pyx_n_s_hatshufflepy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hat_shuffle_encrypt, __pyx_t_1) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hat_shuffle_generate_encoded_vot, __pyx_t_1) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "hatshufflepy.pyx":16
  * 
  * 
- * def hat_shuffle_prove(crs_file, ciphertexts_file, proofs_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.prove(crs_file, ciphertexts_file, proofs_file)
+ * def hat_shuffle_encrypt(crs_file, votes_file, ciphertexts_file):             # <<<<<<<<<<<<<<
+ *     hatshufflepy.encrypt(crs_file, votes_file, ciphertexts_file)
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_12hatshufflepy_7hat_shuffle_prove, NULL, __pyx_n_s_hatshufflepy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_12hatshufflepy_7hat_shuffle_encrypt, NULL, __pyx_n_s_hatshufflepy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hat_shuffle_prove, __pyx_t_1) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hat_shuffle_encrypt, __pyx_t_1) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "hatshufflepy.pyx":20
  * 
  * 
- * def hat_shuffle_verify(crs_file, ciphertexts_file, proofs_file):             # <<<<<<<<<<<<<<
- * 	hatshufflepy.verify(crs_file, ciphertexts_file, proofs_file)
+ * def hat_shuffle_prove(crs_file, ciphertexts_file, proofs_file):             # <<<<<<<<<<<<<<
+ *     hatshufflepy.prove(crs_file, ciphertexts_file, proofs_file)
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_12hatshufflepy_9hat_shuffle_verify, NULL, __pyx_n_s_hatshufflepy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_12hatshufflepy_9hat_shuffle_prove, NULL, __pyx_n_s_hatshufflepy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hat_shuffle_verify, __pyx_t_1) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hat_shuffle_prove, __pyx_t_1) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "hatshufflepy.pyx":24
  * 
  * 
- * def hat_shuffle_decrypt(crs_file, votes_file, proofs_file,             # <<<<<<<<<<<<<<
- *                         decrypted_votes_file):
- * 	hatshufflepy.decrypt(crs_file, votes_file, proofs_file,
+ * def hat_shuffle_verify(crs_file, ciphertexts_file, proofs_file):             # <<<<<<<<<<<<<<
+ *     return hatshufflepy.verify(crs_file, ciphertexts_file, proofs_file)
+ * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_12hatshufflepy_11hat_shuffle_decrypt, NULL, __pyx_n_s_hatshufflepy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_12hatshufflepy_11hat_shuffle_verify, NULL, __pyx_n_s_hatshufflepy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hat_shuffle_decrypt, __pyx_t_1) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hat_shuffle_verify, __pyx_t_1) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "hatshufflepy.pyx":28
+ * 
+ * 
+ * def hat_shuffle_decrypt(crs_file, votes_file, proofs_file,             # <<<<<<<<<<<<<<
+ *                         decrypted_votes_file, secret_file):
+ *     hatshufflepy.decrypt(crs_file, votes_file, proofs_file,
+ */
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_12hatshufflepy_13hat_shuffle_decrypt, NULL, __pyx_n_s_hatshufflepy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hat_shuffle_decrypt, __pyx_t_1) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "hatshufflepy.pyx":34
+ * 
+ * 
+ * def hat_shuffle_test_mixnet(n):             # <<<<<<<<<<<<<<
+ *     hatshufflepy.test_mixnet(n)
+ */
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_12hatshufflepy_15hat_shuffle_test_mixnet, NULL, __pyx_n_s_hatshufflepy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hat_shuffle_test_mixnet, __pyx_t_1) < 0) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "hatshufflepy.pyx":1
