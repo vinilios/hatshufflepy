@@ -49,7 +49,7 @@ export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libprocps.so
 
 ```bash
 sudo apt-get install build-essential git libboost-all-dev cmake libgmp3-dev libssl-dev libprocps4-dev pkg-config python-pip
-pip install cython
+pip install cython setuptools
 ```
 
 2. Install hatshufflepy
