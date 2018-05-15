@@ -42,22 +42,20 @@ class MyBuildExt(build_ext):
 
 
 module = Extension('hatshufflepy',
-                    sources = ['hatshufflepy/hatshufflepy.pyx'],
-                    language = 'c++',
-                    include_dirs = ['hatshufflepy/libhatshuffle/include/libhatshuffle',
-                                    'hatshufflepy/libhatshuffle/include',
-                                    'libhatshuffle/include/libff'],
-                    libraries = ['zm', 'ff', 'hatshuffle'],
-                    library_dirs = ['/usr/local/lib',
-                                    'hatshufflepy/libhatshuffle/lib'],
-                    runtime_library_dirs=[ROOT_PATH +
-                                          '/hatshufflepy/libhatshuffle/lib',
-                                          './'
-                                         ],
-                    extra_compile_args = ['-std=c++11', '-fPIC',
-                                          '-shared', '-w',
-                                          '-static', '-O3'],
-                    extra_link_args = ['-lgmp', '-fopenmp', '-g'])
+                   sources=['hatshufflepy/hatshufflepy.pyx'],
+                   language='c++',
+                   include_dirs=['hatshufflepy/libhatshuffle/include/libhatshuffle',
+                                 'hatshufflepy/libhatshuffle/include',
+                                 'libhatshuffle/include/libff'],
+                   libraries=['zm', 'ff', 'hatshuffle'],
+                   library_dirs=['/usr/local/lib',
+                                 'hatshufflepy/libhatshuffle/lib'],
+                   runtime_library_dirs=[ROOT_PATH +
+                                         '/hatshufflepy/libhatshuffle/lib'],
+                   extra_compile_args=['-std=c++11', '-fPIC',
+                                       '-shared', '-w',
+                                       '-static', '-O3'],
+                   extra_link_args=['-lgmp', '-fopenmp', '-g'])
 
 
 setup(
@@ -73,5 +71,5 @@ setup(
 
     install_requires=["cython >= 0.22.1"],
     ext_modules=cythonize(module),
-    cmdclass = {'build_ext': MyBuildExt, 'install': CustomBuild},
+    cmdclass={'build_ext': MyBuildExt, 'install': CustomBuild},
 )
