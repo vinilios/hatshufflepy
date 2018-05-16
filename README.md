@@ -19,6 +19,7 @@ Installing hatshufflepy
 
 ```bash
 sudo apt-get install build-essential git libboost-all-dev cmake libgmp3-dev libssl-dev libprocps4-dev pkg-config python-pip
+pip install cython >= 0.22.1
 ```
 
 2. Install hatshufflepy
@@ -27,20 +28,25 @@ sudo apt-get install build-essential git libboost-all-dev cmake libgmp3-dev libs
 pip install hatshufflepy
 ```
 
-3. Set LD_PRELOAD
+3. Set LD_LIBRARY_PATH
 
 Add to `.bashrc`:
 
 ```bash
-export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libprocps.so
+export LD_LIBRARY_PATH=/path/to/python/site-packages/hatshufflepy
 ```
 
 or set an environmental variable for the current session
 
 ```bash
-export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libprocps.so
+export LD_LIBRARY_PATH=/path/to/python/site-packages/hatshufflepy
 ```
 
+You can find your path to site-packages with the command:
+
+```bash
+python -m site
+```
 
 ### From source
 
@@ -58,18 +64,24 @@ pip install cython setuptools
 sudo python setup.py install
 ```
 
-3. Set LD_PRELOAD
+3. Set LD_LIBRARY_PATH
 
 Add to `.bashrc`:
 
 ```bash
-export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libprocps.so
+export LD_LIBRARY_PATH=/path/to/python/site-packages/hatshufflepy
 ```
 
 or set an environmental variable for the current session
 
 ```bash
-export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libprocps.so
+export LD_LIBRARY_PATH=/path/to/python/site-packages/hatshufflepy
+```
+
+You can find your path to site-packages with the command:
+
+```bash
+python -m site
 ```
 
 ***So far we have tested these only on Ubuntu 16.04 LTS.***
