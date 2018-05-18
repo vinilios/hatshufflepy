@@ -64,24 +64,4 @@ pip install cython setuptools
 sudo python setup.py install
 ```
 
-3. Set LD_LIBRARY_PATH
-
-Add to `.bashrc`:
-
-```bash
-export LD_LIBRARY_PATH=/path/to/python/site-packages/hatshufflepy
-```
-
-or set an environmental variable for the current session
-
-```bash
-export LD_LIBRARY_PATH=/path/to/python/site-packages/hatshufflepy
-```
-
-You can find your path to site-packages with the command:
-
-```bash
-python -m site
-```
-
 ***So far we have tested these only on Ubuntu 16.04 LTS.***
