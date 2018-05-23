@@ -18,7 +18,7 @@ Installing hatshufflepy
 1. Install Dependencies:
 
 ```bash
-sudo apt-get install build-essential git libboost-all-dev cmake libgmp3-dev libssl-dev libprocps4-dev pkg-config python-pip
+sudo apt-get install libgmp3-dev
 pip install cython >= 0.22.1
 ```
 
@@ -28,7 +28,25 @@ pip install cython >= 0.22.1
 pip install hatshufflepy
 ```
 
-3. Set LD_LIBRARY_PATH
+### From source
+
+
+1. Install dependencies:
+
+```bash
+sudo apt-get install build-essential git libboost-all-dev cmake libgmp3-dev libssl-dev libprocps4-dev pkg-config python-pip
+pip install cython setuptools
+```
+
+2. Install hatshufflepy
+
+```bash
+sudo python setup.py install
+```
+
+### ImportError: libhatshuffle.so
+
+***Set LD_LIBRARY_PATH***
 
 Add to `.bashrc`:
 
@@ -46,22 +64,6 @@ You can find your path to site-packages with the command:
 
 ```bash
 python -m site
-```
-
-### From source
-
-
-1. Install dependencies:
-
-```bash
-sudo apt-get install build-essential git libboost-all-dev cmake libgmp3-dev libssl-dev libprocps4-dev pkg-config python-pip
-pip install cython setuptools
-```
-
-2. Install hatshufflepy
-
-```bash
-sudo python setup.py install
 ```
 
 ***So far we have tested these only on Ubuntu 16.04 LTS.***
