@@ -62,7 +62,7 @@ module = Extension('hatshufflepy',
                                          '/hatshufflepy/libhatshuffle/lib',
 					 '/usr/local/lib/' + VERSION + #  ubuntu
 					 '/dist-packages/hatshufflepy',
-					 LIB_PATH + '/hatshufflepy'], 
+					 LIB_PATH + '/hatshufflepy'],
                    extra_compile_args=['-std=c++11', '-fPIC',
                                        '-shared', '-w',
                                        '-static', '-O3'],
@@ -71,7 +71,7 @@ module = Extension('hatshufflepy',
 
 setup(
     name='hatshufflepy',
-    version='0.0.3',
+    version='0.0.4',
     packages=find_packages(),
     author='Stefanos Chaliasos',
     author_email='stefanoshaliassos@gmail.com',
