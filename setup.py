@@ -30,7 +30,6 @@ class CustomBuild(install):
 
 class MyBuildExt(build_ext):
     def run(self):
-	print(ROOT_PATH)
         build_ext.run(self)
         build_dir = os.path.realpath(self.build_lib)
         root_dir = os.path.dirname(os.path.realpath(__file__))

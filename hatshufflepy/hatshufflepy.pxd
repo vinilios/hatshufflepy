@@ -3,33 +3,33 @@ from libcpp.string cimport string
 
 
 cdef extern from "mixnet.h":
-    bool key_gen(int votes_number, string public_file, string secret_file)
+    bool key_gen(const long votes_number, string  public_file, string  secret_file)
 
 
 cdef extern from "mixnet.h":
-    bool create_crs(int votes_number, string crs_file, string public_file)
+    bool create_crs(const long votes_number, string  crs_file, string  public_file)
 
 
 cdef extern from "mixnet.h":
-    bool generate_encoded_votes(string crs_file, string votes_file)
+    bool generate_encoded_votes(string  crs_file, string  votes_file)
 
 
 cdef extern from "mixnet.h":
-    bool encrypt(string crs_file, string votes_file, string ciphertexts_file)
+    bool encrypt(string  crs_file, string  votes_file, string  ciphertexts_file)
 
 
 cdef extern from "mixnet.h":
-    bool prove(string crs_file, string ciphertexts_file, string proofs_file)
+    bool prove(string  crs_file, string  ciphertexts_file, string  proofs_file)
 
 
 cdef extern from "mixnet.h":
-    bool verify(string crs_file, string ciphertexts_file, string proofs_file)
+    bool verify(string  crs_file, string  ciphertexts_file, string  proofs_file)
 
 
 cdef extern from "mixnet.h":
-    bool decrypt(string crs_file, string votes_file, string proofs_file,
-                 string decrypted_votes_file, string secret_file)
+    bool decrypt(string  crs_file, string  votes_file, string  proofs_file,
+                 string  decrypted_votes_file, string  secret_file)
 
 
 cdef extern from "mixnet.h":
-    bool test_mixnet(int n)
+    bool test_mixnet(const long n)
