@@ -1,6 +1,8 @@
 import os
+import sys
 import shutil
 from setuptools import setup, find_packages
+from distutils.sysconfig import get_python_lib
 from subprocess import call
 from setuptools.command.install import install
 from distutils.extension import Extension
@@ -11,7 +13,13 @@ from Cython.Distutils import build_ext
 #  os.environ['CC'] = 'g++'
 #  os.environ['CXX'] = 'g++'
 
+major = str(sys.version_info.major)
+minor = str(sys.version_info.minor)
+
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
+VERSION = 'python' + major + '.' + minor
+LIB_PATH = get_python_lib()
+print(ROOT_PATH)
 
 
 class CustomBuild(install):
@@ -51,7 +59,10 @@ module = Extension('hatshufflepy',
                    library_dirs=['/usr/local/lib',
                                  'hatshufflepy/libhatshuffle/lib'],
                    runtime_library_dirs=[ROOT_PATH +
-                                         '/hatshufflepy/libhatshuffle/lib'],
+                                         '/hatshufflepy/libhatshuffle/lib',
+					 '/usr/local/lib/' + VERSION + #  ubuntu
+					 '/dist-packages/hatshufflepy',
+					 LIB_PATH + '/hatshufflepy'],
                    extra_compile_args=['-std=c++11', '-fPIC',
                                        '-shared', '-w',
                                        '-static', '-O3'],
@@ -60,7 +71,7 @@ module = Extension('hatshufflepy',
 
 setup(
     name='hatshufflepy',
-    version='0.0.1',
+    version='0.0.4',
     packages=find_packages(),
     author='Stefanos Chaliasos',
     author_email='stefanoshaliassos@gmail.com',
