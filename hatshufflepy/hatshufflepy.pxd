@@ -15,6 +15,11 @@ cdef extern from "mixnet.h":
 
 
 cdef extern from "mixnet.h":
+    bool demo_voting(const long votes_number, const long encoding_number,
+                     string public_file, string votes_file)
+
+
+cdef extern from "mixnet.h":
     bool encrypt(string  crs_file, string  votes_file, string  ciphertexts_file)
 
 

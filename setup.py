@@ -71,7 +71,7 @@ module = Extension('hatshufflepy',
 
 setup(
     name='hatshufflepy',
-    version='0.0.4',
+    version='0.0.6',
     packages=find_packages(),
     author='Stefanos Chaliasos',
     author_email='stefanoshaliassos@gmail.com',
