@@ -12,5 +12,3 @@ RUN git clone https://github.com/StefanosChaliasos/hatshufflepy.git \
     && cd hatshufflepy && python setup.py install
 
 WORKDIR $HOME
-
-ENV LD_PRELOAD /usr/lib/x86_64-linux-gnu/libprocps.so

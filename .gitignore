@@ -1,0 +1,6 @@
+hatshufflepy/hatshufflepy.cpp
+*.egg-info
+hatshufflepy_dist/lib
+hatshufflepy_dist/include
+dist
+build
