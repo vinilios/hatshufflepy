@@ -18,7 +18,7 @@ cp libff_changes/depends/libff/libff/algebra/curves/bn128/bn128_pp.cpp depends/l
 cd depends/libff/depends/ate-pairing/ && git pull origin master && cd ../../../../
 cd depends/libff/depends/xbyak/ && git pull origin master && cd ../../../../
 # Build and install
-mkdir build; cd build && cmake .. -DCMAKE_INSTALL_PREFIX=../../hatshufflepy_dist/ -DCMAKE_INSTALL_RPATH="\$ORIGIN" -DDEBUG=ON -DCPPDEBUG=ON -DPROCPS_libprocps_VERSION=${PROCPS_VERSION:-3}
+mkdir build; cd build && cmake .. -DCMAKE_INSTALL_PREFIX=../../hatshufflepy_dist/ -DCMAKE_INSTALL_RPATH="\$ORIGIN" -DPROCPS_libprocps_VERSION=${PROCPS_VERSION:-3}
 # Use multiple cores
 # mkdir build && cd build && cmake -DMULTICORE=ON .. -DCMAKE_INSTALL_PREFIX=../
 make && make install
