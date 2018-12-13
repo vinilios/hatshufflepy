@@ -56,7 +56,7 @@ setup(
     keywords='mixnet ecc',
     url='https://github.com/StefanosChaliasos/hatshufflepy',
 
-    install_requires=["cython >= 0.29"],
+    install_requires=["cython >= 0.21"],
     package_data= {
         'hatshufflepy_dist': ['lib/*.so']
     },
